@@ -60,7 +60,7 @@ print(distance_detected)
 
 # Plotting
 plt.style.use('./style.mplstyle')
-plt.subplots(4, 1, figsize=(10, 8), facecolor='#181818')
+plt.subplots(4, 1, figsize=(10, 8))
 
 # Amplitude modulated light source
 plt.subplot(4, 1, 1)
@@ -95,4 +95,35 @@ plt.ylabel("Amplitude")
 plt.xlim(0, 10*source_modulation)
 
 plt.tight_layout()
+
+plt.subplots(figsize=(10, 2))
+plt.plot(t, signal, linewidth=1)
+plt.title("Amplitude modulated light source")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+
+plt.subplots(figsize=(10, 2))
+plt.plot(t, detected_signal, label="detected signal", linewidth=1)
+plt.plot(t, reflectivity*signal, label="noiseless phase-shifted light", linewidth=1)
+plt.legend()
+plt.title("Detected light signal")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+
+plt.subplots(figsize=(10, 3))
+plt.plot(t, I, label= 'In-phase component' + r" $I(t)$")
+plt.legend()
+plt.title("Detected signal multiplied with" + r" $R_1(t)$")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+
+plt.subplots(figsize=(10, 2))
+plt.plot(freqs[:len(freqs)//2], fft_detected_signal_mixed_sin[:len(freqs)//2])
+plt.title("Fourier Transform of In-phase component" + r" $I(t)$")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplitude")
+plt.xlim(0, 10*source_modulation)
+
 plt.show()
+
+
