@@ -59,9 +59,8 @@ print(f"Detected Phase: {phase_detected:.3f} rad")
 print(distance_detected)
 
 # Plotting
-plt.figure(figsize=(10, 8))
-plt.style.use('https://github.com/dhaitz/matplotlib-stylesheets/raw/master/pitayasmoothie-dark.mplstyle')
-plt.gcf().set_facecolor('#181818')
+plt.style.use('./style.mplstyle')
+plt.subplots(4, 1, figsize=(10, 8), facecolor='#181818')
 
 # Amplitude modulated light source
 plt.subplot(4, 1, 1)
